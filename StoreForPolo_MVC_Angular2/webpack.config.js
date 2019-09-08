@@ -2,8 +2,8 @@
 const webpack = require('webpack');
 module.exports = {
     entry: {
-        'polyfills': './Content/src/polyfills.ts',
-        'app': './Content/src/main.ts'
+        'polyfills': './src/polyfills.ts',
+        'app': './src/main.ts'
       },
    output:{
        path: path.resolve(__dirname, './public'),     // путь к каталогу выходных файлов - папка public
@@ -24,13 +24,23 @@ module.exports = {
                   } ,
                    'angular2-template-loader'
                ]
-            }
+           },
+           {
+               test: /\.html$/,
+               loader: 'html-loader'
+           },
+           {
+               test: /\.css$/,
+               include: path.resolve(__dirname, 'src/app'),
+               loader: 'raw-loader'
+           }
+
        ]
    },
    plugins: [
     new webpack.ContextReplacementPlugin(
         /angular(\\|\/)core/,
-        path.resolve(__dirname, 'Content/src'), // каталог с исходными файлами
+        path.resolve(__dirname, 'src'), // каталог с исходными файлами
       {} // карта маршрутов
     )
   ]
