@@ -16,7 +16,8 @@ var AppComponent = /** @class */ (function () {
         Component({
             selector: 'app-root',
             templateUrl: './app.component.html',
-            styleUrls: ['./app.component.css']
+            styleUrls: ['./app.component.css',
+                './styles.css']
         }),
         __metadata("design:paramtypes", [])
     ], AppComponent);
